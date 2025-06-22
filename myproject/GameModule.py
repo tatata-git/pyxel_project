@@ -1,64 +1,47 @@
 import pyxel
-from enum import IntEnum, auto
+import Const
 
-# 変更test
-
-TRANSPARENT_COLLORKEY = 0   # 透明色の指定
-
-DEFAULT_WIDTH = 16          # 絵の幅
-DEFAULT_HEIGHT = 16         # 絵の高さ
-
-COLOR_BALL_IMGPLT = 0       # ColorBallが書かれているimgパレットの番号
-COLOR_BALL_WIDTH = 16       # ColorBallの幅
-COLOR_BALL_HEIGHT = 16      # ColorBallの高さ
-COLOR_BALL_OFFSET_U = 0     # ColorBallが格納されている最初のu座標
-COLOR_BALL_OFFSET_V = 0     # ColorBallが格納されている最初のv座標
-
-class COLOR_ID(IntEnum):
-    RED     =   0       
-    GREEN   =   auto()  
-    BLUE    =   auto()
-
-#
+# カラーボールの描画のためのクラス
 class COLOR_BALL:
     # 指定されたカラーボールのu座標を返す
     @staticmethod
     def U(InputColorId):
-        return InputColorId * DEFAULT_WIDTH + COLOR_BALL_OFFSET_U
+        return InputColorId * Const.DEFAULT_WIDTH + Const.COLOR_BALL_OFFSET_U
 
     # 指定されたカラーボールのv座標を返す
     @staticmethod
     def V(InputColorId):
-        return COLOR_BALL_OFFSET_V
+        return Const.COLOR_BALL_OFFSET_V
     
     # (DrawX, DrawY)の位置にInputColorIdで指定されたいろのColorBallを描画する
     @staticmethod
-    def Draw(DrawX, DrawY, InputColorId, TransParentCol = TRANSPARENT_COLLORKEY):
-        pyxel.blt(DrawX, DrawY, COLOR_BALL_IMGPLT, COLOR_BALL.U(InputColorId), COLOR_BALL.V(InputColorId), COLOR_BALL_WIDTH, COLOR_BALL_HEIGHT, TransParentCol)
+    def Draw(DrawX, DrawY, InputColorId, TransParentCol = Const.TRANSPARENT_COLLORKEY):
+        pyxel.blt(DrawX, DrawY, Const.COLOR_BALL_IMGPLT, COLOR_BALL.U(InputColorId), COLOR_BALL.V(InputColorId), Const.COLOR_BALL_WIDTH, Const.COLOR_BALL_HEIGHT, TransParentCol)
     
+# プレイヤークラス
 class CPlayer:
     # 初期化
     def __init__(self, Inputm_XPos, Inputm_YPos):
-        self.m_XPos = Inputm_XPos
-        self.m_YPos = Inputm_YPos
+        self.XPos = Inputm_XPos
+        self.YPos = Inputm_YPos
 
     # 更新
     def update(self):
         if pyxel.btn(pyxel.KEY_D):
-            self.m_XPos += 1
+            self.XPos += 1
         
         if pyxel.btn(pyxel.KEY_A):
-            self.m_XPos -= 1
+            self.XPos -= 1
 
         if pyxel.btn(pyxel.KEY_W):
-            self.m_YPos -= 1
+            self.YPos -= 1
 
         if pyxel.btn(pyxel.KEY_S):
-            self.m_YPos += 1    
+            self.YPos += 1    
 
     # 描画
     def draw(self):
-        COLOR_BALL.Draw(self.m_XPos, self.m_YPos, COLOR_ID.GREEN)
+        COLOR_BALL.Draw(self.XPos, self.YPos, Const.COLOR_ID.GREEN)
 
 
 class App:
