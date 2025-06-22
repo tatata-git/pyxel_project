@@ -1,0 +1,7 @@
+{
+  // VS Code Python 拡張の最新版ではこちらを使います
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/Scripts/python.exe"
+
+  // もし古いバージョンでまだ必要ならコメントアウトを外して
+  // "python.pythonPath": "${workspaceFolder}/venv/Scripts/python.exe"
+}
