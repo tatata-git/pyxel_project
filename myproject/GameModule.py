@@ -1,23 +1,7 @@
 import pyxel
-import Const
+import const
+from color_ball import CColorBall
 
-# カラーボールの描画のためのクラス
-class COLOR_BALL:
-    # 指定されたカラーボールのu座標を返す
-    @staticmethod
-    def U(InputColorId):
-        return InputColorId * Const.DEFAULT_WIDTH + Const.COLOR_BALL_OFFSET_U
-
-    # 指定されたカラーボールのv座標を返す
-    @staticmethod
-    def V(InputColorId):
-        return Const.COLOR_BALL_OFFSET_V
-    
-    # (DrawX, DrawY)の位置にInputColorIdで指定されたいろのColorBallを描画する
-    @staticmethod
-    def Draw(DrawX, DrawY, InputColorId, TransParentCol = Const.TRANSPARENT_COLLORKEY):
-        pyxel.blt(DrawX, DrawY, Const.COLOR_BALL_IMGPLT, COLOR_BALL.U(InputColorId), COLOR_BALL.V(InputColorId), Const.COLOR_BALL_WIDTH, Const.COLOR_BALL_HEIGHT, TransParentCol)
-    
 # プレイヤークラス
 class CPlayer:
     # 初期化
@@ -41,7 +25,7 @@ class CPlayer:
 
     # 描画
     def draw(self):
-        COLOR_BALL.Draw(self.XPos, self.YPos, Const.COLOR_ID.GREEN)
+        CColorBall.Draw(self.XPos, self.YPos, const.COLOR_ID.GREEN)
 
 
 class App:
