@@ -1,6 +1,8 @@
 import pyxel
 from enum import IntEnum, auto
 
+# 変更test
+
 TRANSPARENT_COLLORKEY = 0   # 透明色の指定
 
 DEFAULT_WIDTH = 16          # 絵の幅
