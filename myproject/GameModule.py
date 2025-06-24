@@ -1,6 +1,7 @@
 import pyxel
 import const
 from color_ball import CColorBall
+from input import Input
 
 # プレイヤークラス
 class CPlayer:
@@ -11,16 +12,16 @@ class CPlayer:
 
     # 更新
     def update(self):
-        if pyxel.btn(pyxel.KEY_D):
+        if Input.IsPress(Input.RIGHT):
             self.XPos += 1
         
-        if pyxel.btn(pyxel.KEY_A):
+        if Input.IsPress(Input.LEFT):
             self.XPos -= 1
 
-        if pyxel.btn(pyxel.KEY_W):
+        if Input.IsPress(Input.UP):
             self.YPos -= 1
 
-        if pyxel.btn(pyxel.KEY_S):
+        if Input.IsPress(Input.DOWN):
             self.YPos += 1    
 
     # 描画
