@@ -26,12 +26,12 @@ class CPlayer:
 
     # 描画
     def draw(self):
-        CColorBall.Draw(self.XPos, self.YPos, const.COLOR_ID.GREEN)
+        CColorBall.Draw(self.XPos, self.YPos, const.COLOR_ID.RED)
 
 
 class App:
     def __init__(self):
-        pyxel.init(240, 240, title="myproject")
+        pyxel.init(256, 256, title="myproject")
         pyxel.load("myproject_editor.pyxres")
 
         self.m_cPlayer = CPlayer(50, 50) # プレイヤーインスタンスの作成
@@ -49,7 +49,7 @@ class App:
         pyxel.cls(0)
         #pyxel.text(55, 41, "Hello, Pyxel!", pyxel.frame_count % 16)
 
+        pyxel.bltm(0, 0, 0, 0, 0, 256, 256)
         self.m_cPlayer.draw()
-
 
 App()
