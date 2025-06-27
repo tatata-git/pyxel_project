@@ -3,6 +3,8 @@ import const
 from color_ball import CColorBall
 from input import Input
 
+import colorsys
+
 # プレイヤークラス
 class CPlayer:
     # 初期化
@@ -13,16 +15,16 @@ class CPlayer:
     # 更新
     def update(self):
         if Input.IsPress(Input.RIGHT):
-            self.XPos += 1
+            self.XPos += const.PLAYER_VEL
         
         if Input.IsPress(Input.LEFT):
-            self.XPos -= 1
+            self.XPos -= const.PLAYER_VEL
 
         if Input.IsPress(Input.UP):
-            self.YPos -= 1
+            self.YPos -= const.PLAYER_VEL
 
         if Input.IsPress(Input.DOWN):
-            self.YPos += 1    
+            self.YPos += const.PLAYER_VEL 
 
     # 描画
     def draw(self):
@@ -31,10 +33,15 @@ class CPlayer:
 
 class App:
     def __init__(self):
-        pyxel.init(256, 256, title="myproject")
+        pyxel.init(const.GAMEWINDOW_WIDTH, const.GAMEWINDOW_HEIGHT, title="myproject")
         pyxel.load("myproject_editor.pyxres")
 
-        self.m_cPlayer = CPlayer(50, 50) # プレイヤーインスタンスの作成
+        # # テスト用
+        # pyxel.images[1].load(100,100,"asset/palette.png")
+        # pyxel.images[1].load(0, 0, "asset/wizard2550.png")
+        # pyxel.images[1].load(0,50, "asset/black.png")
+
+        self.m_cPlayer = CPlayer(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y) # プレイヤーインスタンスの作成
 
         pyxel.run(self.update, self.draw)
 
@@ -47,7 +54,11 @@ class App:
 
     def draw(self):
         pyxel.cls(0)
-        #pyxel.text(55, 41, "Hello, Pyxel!", pyxel.frame_count % 16)
+
+        # # テスト用
+        # pyxel.blt(0, 0, 1, 0, 0, 25, 50,1)
+        # pyxel.blt(25, 0, 1, 100, 100, 256, 16)
+        # pyxel.blt(0,50,1,0,50,25,25)
 
         pyxel.bltm(0, 0, 0, 0, 0, 256, 256)
         self.m_cPlayer.draw()
