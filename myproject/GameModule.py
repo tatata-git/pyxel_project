@@ -3,8 +3,6 @@ import const
 from color_ball import CColorBall
 from input import Input
 
-import colorsys
-# testする
 # プレイヤークラス
 class CPlayer:
     # 初期化
