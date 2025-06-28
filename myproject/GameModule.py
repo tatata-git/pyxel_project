@@ -8,9 +8,9 @@ import colorsys
 # プレイヤークラス
 class CPlayer:
     # 初期化
-    def __init__(self, Inputm_XPos, Inputm_YPos):
-        self.XPos = Inputm_XPos
-        self.YPos = Inputm_YPos
+    def __init__(self, InputXPos, InputYPos):
+        self.XPos = InputXPos
+        self.YPos = InputYPos
 
     # 更新
     def update(self):
@@ -41,12 +41,12 @@ class App:
         # pyxel.images[1].load(0, 0, "asset/wizard2550.png")
         # pyxel.images[1].load(0,50, "asset/black.png")
 
-        self.m_cPlayer = CPlayer(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y) # プレイヤーインスタンスの作成
+        self.cPlayer = CPlayer(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y) # プレイヤーインスタンスの作成
 
         pyxel.run(self.update, self.draw)
 
     def update(self):
-        self.m_cPlayer.update()
+        self.cPlayer.update()
 
         # アプリの終了
         if pyxel.btnp(pyxel.KEY_Q):
@@ -61,6 +61,6 @@ class App:
         # pyxel.blt(0,50,1,0,50,25,25)
 
         pyxel.bltm(0, 0, 0, 0, 0, 256, 256)
-        self.m_cPlayer.draw()
+        self.cPlayer.draw()
 
 App()
