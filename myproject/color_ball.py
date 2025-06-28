@@ -1,5 +1,6 @@
 import pyxel
 import const
+from vec2 import Vec2
 
 #####カラーボールの描画のためのクラス
 class CColorBall:
@@ -15,5 +16,5 @@ class CColorBall:
     
     # (DrawX, DrawY)の位置にInputColorIdで指定されたいろのColorBallを描画する
     @staticmethod
-    def Draw(DrawX, DrawY, InputColorId, TransParentCol = const.TRANSPARENT_COLLORKEY):
-        pyxel.blt(DrawX, DrawY, const.COLOR_BALL_IMGPLT, CColorBall.U(InputColorId), CColorBall.V(InputColorId), const.COLOR_BALL_WIDTH, const.COLOR_BALL_HEIGHT, TransParentCol)
+    def Draw(InputPos: Vec2, InputColorId, TransParentCol = const.TRANSPARENT_COLLORKEY):
+        pyxel.blt(InputPos.x, InputPos.y, const.COLOR_BALL_IMGPLT, CColorBall.U(InputColorId), CColorBall.V(InputColorId), const.COLOR_BALL_WIDTH, const.COLOR_BALL_HEIGHT, TransParentCol)

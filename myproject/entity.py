@@ -1,12 +1,17 @@
+from abc import ABC, abstractmethod
 from vec2 import Vec2
 
-class Entity:
-    # GlobalPosだけを受け取って初期化
-    def __init__(self, InputGlobalPos: Vec2):
-        self.GlobalPos = InputGlobalPos
-        self.LocalPos = InputGlobalPos
+class CEntity(ABC):
 
     # GlobalPosとLocalPosを両方受け取って初期化
     def __init__(self, InputGlobalPos: Vec2, InputLocalPos: Vec2):
-        self.GlobalPos = InputGlobalPos
-        self.LocalPos = InputLocalPos
+        self.GlobalPos: Vec2 = InputGlobalPos
+        self.LocalPos: Vec2 = InputLocalPos
+
+    @abstractmethod
+    def update(self):
+        pass
+
+    @abstractmethod
+    def draw(self):
+        pass

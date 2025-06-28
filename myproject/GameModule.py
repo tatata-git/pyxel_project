@@ -2,31 +2,9 @@ import pyxel
 import const
 from color_ball import CColorBall
 from input import Input
+from vec2 import Vec2
 
-# プレイヤークラス
-class CPlayer:
-    # 初期化
-    def __init__(self, InputXPos, InputYPos):
-        self.XPos = InputXPos
-        self.YPos = InputYPos
-
-    # 更新
-    def update(self):
-        if Input.IsPress(Input.RIGHT):
-            self.XPos += const.PLAYER_VEL
-        
-        if Input.IsPress(Input.LEFT):
-            self.XPos -= const.PLAYER_VEL
-
-        if Input.IsPress(Input.UP):
-            self.YPos -= const.PLAYER_VEL
-
-        if Input.IsPress(Input.DOWN):
-            self.YPos += const.PLAYER_VEL 
-
-    # 描画
-    def draw(self):
-        CColorBall.Draw(self.XPos, self.YPos, const.COLOR_ID.RED)
+from player import CPlayer
 
 
 class App:
@@ -39,7 +17,8 @@ class App:
         # pyxel.images[1].load(0, 0, "asset/wizard2550.png")
         # pyxel.images[1].load(0,50, "asset/black.png")
 
-        self.cPlayer = CPlayer(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y) # プレイヤーインスタンスの作成
+        # プレイヤーインスタンスの作成
+        self.cPlayer = CPlayer(Vec2(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y), Vec2(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y))
 
         pyxel.run(self.update, self.draw)
 
