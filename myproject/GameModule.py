@@ -9,7 +9,7 @@ from player import CPlayer
 
 class App:
     def __init__(self):
-        pyxel.init(const.GAMEWINDOW_WIDTH, const.GAMEWINDOW_HEIGHT, title="myproject")
+        pyxel.init(const.GAMEWINDOW_WIDTH, const.GAMEWINDOW_HEIGHT, title="myproject", display_scale = 2)
         pyxel.load("myproject_editor.pyxres")
 
         # # テスト用
