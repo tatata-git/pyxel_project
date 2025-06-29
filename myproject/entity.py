@@ -15,3 +15,6 @@ class CEntity(ABC):
     @abstractmethod
     def draw(self):
         pass
+
+    def UpdateLocalPos(self, InputCameraPos):
+        self.LocalPos = self.GlobalPos - InputCameraPos

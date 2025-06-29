@@ -4,7 +4,10 @@ import const
 from input import Input
 from vec2 import Vec2
 
+
 from color_ball import CColorBall
+
+from stage import CStage
 
 from entity import CEntity
 class CPlayer(CEntity):
@@ -12,6 +15,11 @@ class CPlayer(CEntity):
     # 初期化
     def __init__(self, InputGlobalPos: Vec2, InputLocalPos: Vec2):
         super().__init__(InputGlobalPos, InputLocalPos)
+        self.cStage = None
+
+    # ステージへの参照をセットする
+    def InitStage(self, InputStage: CStage):
+        self.cStage = InputStage
 
     # 更新
     @override
@@ -27,8 +35,16 @@ class CPlayer(CEntity):
 
         if Input.IsPress(Input.DOWN):
             self.GlobalPos.y += const.PLAYER_VEL 
+
+        # カメラ位置の更新を要求
+        self.cStage.SetCameraPos(self.GlobalPos)
+
+        # ローカル座標を更新
+        self.UpdateLocalPos(self.cStage.CameraPos)
     
     # 描画
     @override
     def draw(self):
-        CColorBall.Draw(self.GlobalPos, const.COLOR_ID.RED)
+        CColorBall.Draw(self.LocalPos, const.COLOR_ID.RED)
+
+    
