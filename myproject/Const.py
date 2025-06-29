@@ -16,8 +16,10 @@ COLOR_BALL_HEIGHT = 16      # ColorBallの高さ
 COLOR_BALL_OFFSET_U = 0     # ColorBallが格納されている最初のu座標
 COLOR_BALL_OFFSET_V = 0     # ColorBallが格納されている最初のv座標
 
-PLAYER_INIT_POS_X = 128     # プレイヤーの初期x座標
-PLAYER_INIT_POS_Y = 128     # プレイヤーの初期y座標
+PLAYER_WIDTH = 16         # プレイヤーの幅
+PLAYER_HEIGHT = 16         # プレイヤーの高さ
+PLAYER_INIT_POS_X = GAMEWINDOW_WIDTH  / 2 - PLAYER_WIDTH    # プレイヤーの初期x座標
+PLAYER_INIT_POS_Y = GAMEWINDOW_HEIGHT / 2 - PLAYER_HEIGHT   # プレイヤーの初期y座標
 PLAYER_VEL = 2              # プレイヤーの移動速度                  
 
 class COLOR_ID(IntEnum):

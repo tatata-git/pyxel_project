@@ -18,6 +18,7 @@ class App:
         # pyxel.images[1].load(0,50, "asset/black.png")
 
         # プレイヤーインスタンスの作成
+        # 座標だけ初期化して、あとで依存性の注入を行う
         self.cPlayer = CPlayer(Vec2(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y), Vec2(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y))
 
         pyxel.run(self.update, self.draw)
