@@ -1,4 +1,6 @@
 import pyxel
+import PyxelUniversalFont as puf
+
 import const
 from color_ball import CColorBall
 from vec2 import Vec2
@@ -47,6 +49,8 @@ class App:
 
         self.cStage.draw()
         self.cPlayer.draw()
-        
+
+        writer = puf.Writer("misaki_gothic.ttf")
+        writer.draw(0, 0, "PlayerGloBalPosX : " + str(int(self.cPlayer.GlobalPos.x)), 16, 7)
 
 App()
