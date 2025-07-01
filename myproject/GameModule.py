@@ -10,7 +10,7 @@ from stage import CStage
 
 class App:
     def __init__(self):
-        pyxel.init(const.GAMEWINDOW_WIDTH, const.GAMEWINDOW_HEIGHT, title="myproject", display_scale = 2)
+        pyxel.init(const.GAMEWINDOW_WIDTH, const.GAMEWINDOW_HEIGHT, title="myproject", display_scale = const.DIPLAY_SCALE)
         pyxel.load("myproject_editor.pyxres")
 
         # # テスト用

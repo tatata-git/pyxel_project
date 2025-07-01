@@ -6,6 +6,7 @@ TRANSPARENT_COLLORKEY = 1   # 透明色の指定
 
 GAMEWINDOW_WIDTH = 600      # ウィンドウの幅
 GAMEWINDOW_HEIGHT = 400     # ウィンドウの高さ
+DIPLAY_SCALE = 2            # 拡大
 
 # グローバル座標の範囲を定義. 0~GLOBAL_MAXまでの範囲を描画する
 GLOBAL_MAX_X = 1000
@@ -15,13 +16,13 @@ DEFAULT_WIDTH = 16          # 絵の幅
 DEFAULT_HEIGHT = 16         # 絵の高さ
 
 COLOR_BALL_IMGPLT = 0       # ColorBallが書かれているimgパレットの番号
-COLOR_BALL_WIDTH = 16       # ColorBallの幅
-COLOR_BALL_HEIGHT = 16      # ColorBallの高さ
+COLOR_BALL_WIDTH = 32       # ColorBallの幅
+COLOR_BALL_HEIGHT = 32      # ColorBallの高さ
 COLOR_BALL_OFFSET_U = 0     # ColorBallが格納されている最初のu座標
 COLOR_BALL_OFFSET_V = 0     # ColorBallが格納されている最初のv座標
 
-PLAYER_WIDTH = 16           # プレイヤーの幅
-PLAYER_HEIGHT = 16          # プレイヤーの高さ
+PLAYER_WIDTH = 32           # プレイヤーの幅
+PLAYER_HEIGHT =32          # プレイヤーの高さ
 PLAYER_INIT_POS_X = GLOBAL_MAX_X  / 2 - PLAYER_WIDTH / 2   # プレイヤーの初期x座標
 PLAYER_INIT_POS_Y = GLOBAL_MAX_Y / 2 - PLAYER_HEIGHT / 2  # プレイヤーの初期y座標
 PLAYER_VEL = 2              # プレイヤーの移動速度              
