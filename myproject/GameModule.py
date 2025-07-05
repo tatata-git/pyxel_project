@@ -15,7 +15,7 @@ class App:
 
         # # テスト用
         # pyxel.images[1].load(100,100,"asset/palette.png")
-        # pyxel.images[1].load(0, 0, "asset/wizard2550.png")
+        pyxel.images[1].load(0, 0, "asset/Monster/SlimeA_Blue.png")
         # pyxel.images[1].load(0,50, "asset/black.png")
 
         ## オブジェクトの生成
@@ -42,15 +42,15 @@ class App:
     def draw(self):
         pyxel.cls(0)
 
-        # # テスト用
-        # pyxel.blt(0, 0, 1, 0, 0, 25, 50,1)
-        # pyxel.blt(25, 0, 1, 100, 100, 256, 16)
-        # pyxel.blt(0,50,1,0,50,25,25)
-
         self.cStage.draw()
         self.cPlayer.draw()
 
         writer = puf.Writer("misaki_gothic.ttf")
         writer.draw(0, 0, "PlayerGloBalPosX : " + str(int(self.cPlayer.GlobalPos.x)), 16, 7)
+
+        # # テスト用
+        pyxel.blt(0, 0, 1, 0, 0, 32, 32,1)
+        # pyxel.blt(25, 0, 1, 100, 100, 256, 16)
+        # pyxel.blt(0,50,1,0,50,25,25)
 
 App()
