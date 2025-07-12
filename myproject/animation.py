@@ -28,10 +28,10 @@ class CAnimation:
                 
                 
 
-    def current_frame(self):
+    def CurrentFrame(self):
         return self.NowFrame
 
-    def reset(self):
+    def Reset(self):
         self.NowFrame = 0
         self.Counter = 0
         self.IsFinish = False

@@ -1,0 +1,5 @@
+﻿enum_name,width,height,pass
+eIMG_SLIME_BLUE,96,128,asset/Monster/Slime_Blue.png
+eIMG_DRAGON,96,128,asset/Monster/Dragon.png
+eIMG_APPLE,96,128,asset/Monster/Apple.png
+eIMG_PENGUIN,96,128,asset/Monster/Penguin.png

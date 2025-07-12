@@ -1,12 +1,14 @@
-from typing import override
 import pyxel
 import const
+import os
+from typing import override
 from input import Input
 from vec2 import Vec2
 from animation import CAnimation
-
 from color_ball import CColorBall
 
+from automade.img_enum import Img
+from imagemanager import CImageManager
 from stage import CStage
 
 from entity import CEntity
@@ -19,6 +21,7 @@ class CPlayer(CEntity):
         self.cStage = None
         self.eWalkState = const.eWALKSTATE_ID.FRONT
         self.WalkAnimation = CAnimation(const.PLAYER_WALKANIMATION_FRAMES, 7, True)
+        self.Img = CImageManager.Instance().images[Img.eIMG_SLIME_BLUE.value]
 
     # ステージへの参照をセットする
     def InitStage(self, InputStage: CStage):
@@ -56,11 +59,9 @@ class CPlayer(CEntity):
     def draw(self):
         #CColorBall.Draw(self.LocalPos, const.COLOR_ID.RED)
 
-        NowWalkAnimationFrame = self.WalkAnimation.current_frame()
+        NowWalkAnimationFrame = self.WalkAnimation.CurrentFrame()
         pyxel.blt(self.LocalPos.x, self.LocalPos.y,
-                  1,
+                  self.Img,
                   const.PLAYER_WIDTH * NowWalkAnimationFrame, const.PLAYER_HEIGHT * self.eWalkState,
                   const.PLAYER_WIDTH, const.PLAYER_HEIGHT,
                   const.TRANSPARENT_COLLORKEY)
-
-    

@@ -5,6 +5,8 @@ import const
 from color_ball import CColorBall
 from vec2 import Vec2
 
+from imagemanager import CImageManager
+
 from player import CPlayer
 from stage import CStage
 
@@ -15,8 +17,13 @@ class App:
 
         # # テスト用
         # pyxel.images[1].load(100,100,"asset/palette.png")
-        pyxel.images[1].load(0, 0, "asset/Monster/SlimeA_Blue.png")
+        pyxel.images[1].load(0, 0, "asset/Monster/Slime_Blue.png")
         # pyxel.images[1].load(0,50, "asset/black.png")
+
+        # イメージマネージャの初期化
+        pI = CImageManager.Instance()
+        pI.LoadAll()
+        
 
         ## オブジェクトの生成
         # プレイヤー
@@ -49,8 +56,13 @@ class App:
         writer.draw(0, 0, "PlayerGloBalPosX : " + str(int(self.cPlayer.GlobalPos.x)), 16, 7)
 
         # # テスト用
-        pyxel.blt(0, 0, 1, 0, 0, 32, 32,1)
+        #pyxel.blt(0, 0, 1, 0, 0, 32, 32,1)
         # pyxel.blt(25, 0, 1, 100, 100, 256, 16)
         # pyxel.blt(0,50,1,0,50,25,25)
+
+        
+        self.img = pyxel.Image(1024, 1024)
+        self.img.load(x=0, y=0, filename="asset/Monster/Slime_Blue.png")
+        pyxel.blt(0, 0, self.img, 0, 0, 96, 128,1)
 
 App()
