@@ -24,7 +24,6 @@ class App:
         pI = CImageManager.Instance()
         pI.LoadAll()
         
-
         ## オブジェクトの生成
         # プレイヤー
         self.cPlayer = CPlayer(Vec2(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y), Vec2(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y))
@@ -52,17 +51,16 @@ class App:
         self.cStage.draw()
         self.cPlayer.draw()
 
-        writer = puf.Writer("misaki_gothic.ttf")
-        writer.draw(0, 0, "PlayerGloBalPosX : " + str(int(self.cPlayer.GlobalPos.x)), 16, 7)
+        writer = puf.Writer("misaki_mincho.ttf")
+        writer.draw(0, 0, "PlayerGlobalPosX : " + str(int(self.cPlayer.GlobalPos.x)), 16, 7)
 
         # # テスト用
         #pyxel.blt(0, 0, 1, 0, 0, 32, 32,1)
         # pyxel.blt(25, 0, 1, 100, 100, 256, 16)
         # pyxel.blt(0,50,1,0,50,25,25)
 
-        
-        self.img = pyxel.Image(1024, 1024)
-        self.img.load(x=0, y=0, filename="asset/Monster/Slime_Blue.png")
-        pyxel.blt(0, 0, self.img, 0, 0, 96, 128,1)
+        # self.img = pyxel.Image(1024, 1024)
+        # self.img.load(x=0, y=0, filename="asset/Monster/Slime_Blue.png")
+        # pyxel.blt(0, 0, self.img, 0, 0, 96, 128,1)
 
 App()

@@ -20,7 +20,8 @@ class CPlayer(CEntity):
         super().__init__(InputGlobalPos, InputLocalPos)
         self.cStage = None
         self.eWalkState = const.eWALKSTATE_ID.FRONT
-        self.WalkAnimation = CAnimation(const.PLAYER_WALKANIMATION_FRAMES, 7, True)
+        self.WalkAnimation = CAnimation(const.PLAYER_WALKANIMATION_FRAMES, const.PLAYER_WALKANIMATION_SPEED, True)
+        self.DamageAnimation = CAnimation(2,3,True)
         self.Img = CImageManager.Instance().images[Img.eIMG_SLIME_BLUE.value]
 
     # ステージへの参照をセットする
@@ -53,11 +54,19 @@ class CPlayer(CEntity):
         self.UpdateLocalPos(self.cStage.CameraPos)
 
         self.WalkAnimation.update()
+
+        self.DamageAnimation.update()
     
     # 描画
     @override
     def draw(self):
         #CColorBall.Draw(self.LocalPos, const.COLOR_ID.RED)
+
+        # 点滅処理
+        if self.DamageAnimation.CurrentFrame() == 0:
+            for c in range(const.COLOR_NUM):
+                if c != const.TRANSPARENT_COLLORKEY:
+                    pyxel.pal(c, const.COLOR_WHITE)
 
         NowWalkAnimationFrame = self.WalkAnimation.CurrentFrame()
         pyxel.blt(self.LocalPos.x, self.LocalPos.y,
@@ -65,3 +74,5 @@ class CPlayer(CEntity):
                   const.PLAYER_WIDTH * NowWalkAnimationFrame, const.PLAYER_HEIGHT * self.eWalkState,
                   const.PLAYER_WIDTH, const.PLAYER_HEIGHT,
                   const.TRANSPARENT_COLLORKEY)
+        
+        pyxel.pal()

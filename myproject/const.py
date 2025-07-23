@@ -3,6 +3,8 @@
 from enum import IntEnum, auto
 
 TRANSPARENT_COLLORKEY = 1   # 透明色の指定
+COLOR_NUM = 217             # 色の総数. myproject_editor.pyxpalで指定している個数.
+COLOR_WHITE = 7             # 白色を示すパレット番号
 
 GAMEWINDOW_WIDTH = 600      # ウィンドウの幅
 GAMEWINDOW_HEIGHT = 400     # ウィンドウの高さ
