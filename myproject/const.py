@@ -8,7 +8,7 @@ COLOR_WHITE = 7             # 白色を示すパレット番号
 
 GAMEWINDOW_WIDTH = 600      # ウィンドウの幅
 GAMEWINDOW_HEIGHT = 400     # ウィンドウの高さ
-DIPLAY_SCALE = 2            # 拡大
+DIPLAY_SCALE = 2            # 拡大倍率
 
 # グローバル座標の範囲を定義. 0~GLOBAL_MAXまでの範囲を描画する
 GLOBAL_MAX_X = 1000
@@ -24,7 +24,7 @@ COLOR_BALL_OFFSET_U = 0     # ColorBallが格納されている最初のu座標
 COLOR_BALL_OFFSET_V = 0     # ColorBallが格納されている最初のv座標
 
 PLAYER_WIDTH = 32                                           # プレイヤーの幅
-PLAYER_HEIGHT =32                                           # プレイヤーの高さ
+PLAYER_HEIGHT = 32                                          # プレイヤーの高さ
 PLAYER_INIT_POS_X = GLOBAL_MAX_X  / 2 - PLAYER_WIDTH / 2    # プレイヤーの初期x座標
 PLAYER_INIT_POS_Y = GLOBAL_MAX_Y / 2 - PLAYER_HEIGHT / 2    # プレイヤーの初期y座標
 PLAYER_VEL = 2                                              # プレイヤーの移動速度
