@@ -23,13 +23,17 @@ COLOR_BALL_HEIGHT = 32      # ColorBallの高さ
 COLOR_BALL_OFFSET_U = 0     # ColorBallが格納されている最初のu座標
 COLOR_BALL_OFFSET_V = 0     # ColorBallが格納されている最初のv座標
 
-PLAYER_WIDTH = 32                                           # プレイヤーの幅
-PLAYER_HEIGHT = 32                                          # プレイヤーの高さ
-PLAYER_INIT_POS_X = GLOBAL_MAX_X  / 2 - PLAYER_WIDTH / 2    # プレイヤーの初期x座標
-PLAYER_INIT_POS_Y = GLOBAL_MAX_Y / 2 - PLAYER_HEIGHT / 2    # プレイヤーの初期y座標
-PLAYER_VEL = 2                                              # プレイヤーの移動速度
-PLAYER_WALKANIMATION_FRAMES = 3                             # 歩行アニメの総コマ数
-PLAYER_WALKANIMATION_SPEED = 7                              # 歩行アニメのスピード              
+CHARA_WIDTH = 32                                        # プレイヤーの幅
+CHARA_HEIGHT = 32                                       # プレイヤーの高さ
+CHARA_INIT_POS_X = GLOBAL_MAX_X  / 2 - CHARA_WIDTH / 2  # プレイヤーの初期x座標
+CHARA_INIT_POS_Y = GLOBAL_MAX_Y / 2 - CHARA_HEIGHT / 2  # プレイヤーの初期y座標
+CHARA_VEL = 2                                           # プレイヤーの移動速度
+CHARA_WALKANIMATION_FRAMES = 3                          # 歩行アニメの総コマ数
+
+PLAYER_WALKANIMATION_SPEED = 7                          # 歩行アニメのスピード  
+
+DAMAGEANIMATION_SPEED = 3                               # ダメージアニメのスピード
+DITHER_SPEED = 0.8                                      # つぶつぶ処理のスピード
 
 # マップの一単位の高さを定義. マップはこの(MAP_UNIT_WIDTH*MAP_UNIT_HEIGHT)を一単位としてループして表示される
 MAP_UNIT_WIDTH = 8 * 16      # マップ一単位の幅

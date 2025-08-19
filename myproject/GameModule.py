@@ -26,14 +26,14 @@ class App:
         
         ## オブジェクトの生成
         # プレイヤー
-        self.cPlayer = CPlayer(Vec2(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y), Vec2(const.PLAYER_INIT_POS_X, const.PLAYER_INIT_POS_Y))
+        self.cPlayer = CPlayer(Vec2(const.CHARA_INIT_POS_X, const.CHARA_INIT_POS_Y), Vec2(const.CHARA_INIT_POS_X, const.CHARA_INIT_POS_Y))
 
         # ステージ
         self.cStage  = CStage()
 
         ## 依存性の注入
         # プレイヤー
-        self.cPlayer.InitStage(self.cStage)
+        self.cPlayer.SetStage(self.cStage)
 
         pyxel.run(self.update, self.draw)
 

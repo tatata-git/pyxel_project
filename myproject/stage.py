@@ -54,5 +54,5 @@ class CStage:
             
             
     def SetCameraPos(self, TargetPos: Vec2):
-        self.CameraPos.x = TargetPos.x - (const.GAMEWINDOW_WIDTH/2 - const.PLAYER_WIDTH / 2)
-        self.CameraPos.y = TargetPos.y - (const.GAMEWINDOW_HEIGHT/2 - const.PLAYER_HEIGHT / 2)
+        self.CameraPos.x = TargetPos.x - (const.GAMEWINDOW_WIDTH/2 - const.CHARA_WIDTH / 2)
+        self.CameraPos.y = TargetPos.y - (const.GAMEWINDOW_HEIGHT/2 - const.CHARA_HEIGHT / 2)
