@@ -23,7 +23,7 @@ class CEntity(ABC):
         self.eWalkState = const.eWALKSTATE_ID.FRONT
         self.WalkAnimation = CAnimation(const.CHARA_WALKANIMATION_FRAMES, const.PLAYER_WALKANIMATION_SPEED, True)
         self.DamageAnimation = CAnimation(2, const.DAMAGEANIMATION_SPEED, True)
-        self.Img = CImageManager.Instance().images[Img.eIMG_APPLE.value]
+        self.Img = CImageManager.Instance().images[Img.eIMG_APPLE.value] # enumだけを保持して、ImageManagerの描画を都度呼び出す方がいいかも
 
         self.cStage = None  # 現在のステージを格納
 
@@ -44,7 +44,7 @@ class CEntity(ABC):
     def SetStage(self, InputStage: CStage):
         self.cStage = InputStage
 
-    # 画像をセットする
+    # 画像の更新
     def SetImg(self, InputeImgValue: int):
         self.Img = CImageManager.Instance().images[InputeImgValue]
 

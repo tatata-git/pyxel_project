@@ -1,5 +1,7 @@
 import pyxel
 import PyxelUniversalFont as puf
+import time
+from collections import deque
 
 import const
 from color_ball import CColorBall
@@ -12,6 +14,11 @@ from stage import CStage
 
 class App:
     def __init__(self):
+        # タイマーの初期化
+        self._last_time = time.perf_counter()
+        self._frame_times = deque(maxlen=30)  # 直近30フレームの dt を保持
+        self.fps_avg = 0.0   
+
         pyxel.init(const.GAMEWINDOW_WIDTH, const.GAMEWINDOW_HEIGHT, title="myproject", display_scale = const.DIPLAY_SCALE)
         pyxel.load("myproject_editor.pyxres")
 
@@ -38,6 +45,22 @@ class App:
         pyxel.run(self.update, self.draw)
 
     def update(self):
+        # --- delta time 計測 ---
+        now = time.perf_counter()
+        dt = now - self._last_time
+        self._last_time = now
+
+        # --- 移動平均のために dt を保存 ---
+        # （極端なスパイクを弾きたい場合は、0<dt<0.5 などの簡単な範囲チェックを入れても良い）
+        if dt > 0:
+            self._frame_times.append(dt)
+
+        # --- 平均 dt から平均 FPS を計算 ---
+        if self._frame_times:
+            avg_dt = sum(self._frame_times) / len(self._frame_times)
+            if avg_dt > 0:
+                self.fps_avg = 1.0 / avg_dt
+
         self.cPlayer.update()
         self.cStage.update()
 
@@ -51,8 +74,10 @@ class App:
         self.cStage.draw()
         self.cPlayer.draw()
 
-        writer = puf.Writer("misaki_mincho.ttf")
-        writer.draw(0, 0, "PlayerGlobalPosX : " + str(int(self.cPlayer.GlobalPos.x)), 16, 7)
+        #writer = puf.Writer("misaki_mincho.ttf")
+        #writer.draw(0, 0, "FPS : " + str(int(self.fps_avg)), 16, 7)
+
+        pyxel.text(5, 5, f"FPS(avg30): {self.fps_avg:4.1f}", 7)
 
         # # テスト用
         #pyxel.blt(0, 0, 1, 0, 0, 32, 32,1)
