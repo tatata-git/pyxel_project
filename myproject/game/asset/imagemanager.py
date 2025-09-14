@@ -23,14 +23,24 @@ class CImageManager:
         return cls._instance
 
     def LoadAll(self):
-        BaseDir = os.path.dirname(os.path.abspath(__file__))
-        CSVPath = os.path.join(BaseDir, "asset", "image_info.csv")
-        with open(CSVPath, newline='', encoding='utf-8-sig') as csvfile:
-            Render = csv.DictReader(csvfile)
-            for row in Render:
+        # このファイルの場所を基準にリソースパスを解決する
+        base_dir = os.path.dirname(os.path.abspath(__file__))              # .../myproject/game/asset
+        imageasset_dir = os.path.join(base_dir, "imageasset")             # .../myproject/game/asset/imageasset
+        csv_path = os.path.join(imageasset_dir, "image_info.csv")
+
+        with open(csv_path, newline='', encoding='utf-8-sig') as csvfile:
+            render = csv.DictReader(csvfile)
+            for row in render:
                 width = int(row['width'])
                 height = int(row['height'])
-                path = row['pass']
-                img = pyxel.Image(width,height)
-                img.load(0, 0, path)
+
+                rel_path = row['pass'].replace('\\', '/')
+                # CSV のパスが "asset/..." で始まるため、imageasset を基準に解決する
+                if rel_path.startswith('asset/'):
+                    rel_path = rel_path[len('asset/'):]  # 先頭の 'asset/' を除去
+
+                full_path = os.path.join(imageasset_dir, rel_path)
+
+                img = pyxel.Image(width, height)
+                img.load(0, 0, full_path)
                 self.images.append(img)

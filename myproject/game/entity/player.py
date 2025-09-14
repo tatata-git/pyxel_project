@@ -7,7 +7,7 @@ from myproject.game.system.vec2 import Vec2
 from myproject.game.system.animation import CAnimation
 from myproject.game.system.color_ball import CColorBall
 
-from automade.img_enum import Img
+from myproject.game.asset.automade.img_enum import Img
 from myproject.game.asset.imagemanager import CImageManager
 
 from myproject.game.entity.entity import CEntity

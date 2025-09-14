@@ -6,7 +6,7 @@ import myproject.game.system.const as const
 from myproject.game.system.animation import CAnimation
 from myproject.game.system.vec2 import Vec2
 
-from automade.img_enum import Img
+from myproject.game.asset.automade.img_enum import Img
 from myproject.game.asset.imagemanager import CImageManager
 
 from myproject.game.stage.stage import CStage

@@ -4,13 +4,16 @@
     // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
-            "name": "Python デバッガー: 現在のファイル",
+            "name": "Run GameModule (script, cwd=myproject)",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/myproject/GameModule.py",
-            "console": "integratedTerminal"
+            "cwd": "${workspaceFolder}/myproject",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
         }
     ]
 }

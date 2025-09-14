@@ -3,14 +3,14 @@ import PyxelUniversalFont as puf
 import time
 from collections import deque
 
-import const
-from color_ball import CColorBall
-from vec2 import Vec2
+import myproject.game.system.const as const
+from myproject.game.system.color_ball import CColorBall
+from myproject.game.system.vec2 import Vec2
 
-from imagemanager import CImageManager
+from myproject.game.asset.imagemanager import CImageManager
 
-from player import CPlayer
-from stage import CStage
+from myproject.game.entity.player import CPlayer
+from myproject.game.stage.stage import CStage
 
 class App:
     def __init__(self):
@@ -24,7 +24,7 @@ class App:
 
         # # テスト用
         # pyxel.images[1].load(100,100,"asset/palette.png")
-        pyxel.images[1].load(0, 0, "asset/Monster/Slime_Blue.png")
+        # pyxel.images[1].load(0, 0, "asset/Monster/Slime_Blue.png")
         # pyxel.images[1].load(0,50, "asset/black.png")
 
         # イメージマネージャの初期化
