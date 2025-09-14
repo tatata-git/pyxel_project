@@ -2,14 +2,14 @@ import pyxel
 from abc import ABC, abstractmethod
 from contextlib import contextmanager
 
-import const
-from animation import CAnimation
-from vec2 import Vec2
+import myproject.game.system.const as const
+from myproject.game.system.animation import CAnimation
+from myproject.game.system.vec2 import Vec2
 
 from automade.img_enum import Img
-from imagemanager import CImageManager
+from myproject.game.asset.imagemanager import CImageManager
 
-from stage import CStage
+from myproject.game.stage.stage import CStage
 
 class CEntity(ABC):
 

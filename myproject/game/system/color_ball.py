@@ -1,6 +1,6 @@
 import pyxel
-import const
-from vec2 import Vec2
+import myproject.game.system.const as const
+from myproject.game.system.vec2 import Vec2
 
 #####カラーボールの描画のためのクラス
 class CColorBall:

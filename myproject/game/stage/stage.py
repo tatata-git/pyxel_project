@@ -1,9 +1,9 @@
 from typing import override
 import math
 import pyxel
-import const
-from input import Input
-from vec2 import Vec2
+import myproject.game.system.const as const
+from myproject.game.system.input import Input
+from myproject.game.system.vec2 import Vec2
 
 
 class CStage:

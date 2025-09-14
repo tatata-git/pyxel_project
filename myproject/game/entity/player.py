@@ -1,16 +1,16 @@
 import pyxel
-import const
+import myproject.game.system.const as const
 import os
 from typing import override
-from input import Input
-from vec2 import Vec2
-from animation import CAnimation
-from color_ball import CColorBall
+from myproject.game.system.input import Input
+from myproject.game.system.vec2 import Vec2
+from myproject.game.system.animation import CAnimation
+from myproject.game.system.color_ball import CColorBall
 
 from automade.img_enum import Img
-from imagemanager import CImageManager
+from myproject.game.asset.imagemanager import CImageManager
 
-from entity import CEntity
+from myproject.game.entity.entity import CEntity
 
 class CPlayer(CEntity):
     # 初期化
